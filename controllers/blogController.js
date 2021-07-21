@@ -18,11 +18,15 @@ const blog_details = (req, res) => {
     const id = req.params.id.slice(1)
 
     Blog.findById(id).then(result => {
-        console.log(result)
-        res.render('./blogs/details', { blog: result, title: 'Blog Details' })
-    }).catch((err) => {
-        console.log('Joachim: ERROR:')
+
+        if(result != null)
+            res.render('./blogs/details', { blog: result, title: 'Blog Details' })
+        else
+            res.status(404).render('404', {title: 'Blog not found' })
+
+    }).catch( err => {
         console.log(err)
+        res.status(404).render('404', {title: 'Site not found' })
     })
 }
 

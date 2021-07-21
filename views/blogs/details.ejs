@@ -16,7 +16,9 @@
                     </p>
                 </div>
                 <!-- store blog._id value in data-doc html variable -->
-                <a class="delete" data-doc="<%= blog._id %>">delete</a>
+                <a class="delete" data-doc="<%= blog._id %>">
+                    <img src="/trashcan.svg" alt="delete icon">
+                </a>
             </div>
 
             <%- include('../partials/footer.ejs') %>
